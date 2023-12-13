@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, rgb(223, 211, 45) , rgb(170, 170, 170));
+    min-height: 100vh;
+}
+
+.test{
+    position: absolute;
+    z-index: -10;
+    width: 1100px;
+    height: 500px;
+    background: linear-gradient(to top, rgb(155, 155, 155) , rgb(199, 199, 199));
+}
+
+.card {
+    position: relative;
+    margin: 20px;
+    width: 300px;
+    height: 350px;
+}
+
+.card .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.card .front {
+    transform: perspective(600px) rotateX(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .front img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .front h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.card .back {
+    transform: perspective(600px) rotateX(180deg);
+    background: url(../images/Dollar.jpg);
+    padding: 15px;
+    color: #f3f3f3;
+    text-shadow: 0 0 6px #15ff00, 0 0 6px #c08d00;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .back .link {
+    border-top: solid 1px #f3f3f3;
+    height: 50px;
+    line-height: 50px;
+}
+
+.card .back .link a {
+    color: #f3f3f3;
+}
+
+.card .back h3 {
+    font-size: 30px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+.card .back p {
+    letter-spacing: 1px;
+}
+
+.card:hover .front {
+    transform: perspective(600px) rotateX(180deg);
+}
+
+.card:hover .back {
+    transform: perspective(600px) rotateX(360deg);
+}
+
+.card::before{
+    content: "BLACK FRIDAY DISCOUNT!";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 25px/50%;
+    padding: 9px 26px;
+    color: #000;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    z-index: 10;
+    cursor: pointer;
+}
